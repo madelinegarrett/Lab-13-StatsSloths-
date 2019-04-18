@@ -4,6 +4,7 @@
 
 Katie -> Poisoning
 Zandy -> Falls
+Kevin -> Burns
 
 Perm_mean function from last week (corrected):
 ```{r}
