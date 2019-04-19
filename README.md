@@ -66,7 +66,15 @@ current_mean <- original_means[27] #27 represents 2017
 old_mean <- original_means[1] #1 represents 1990
 original_diff <- current_mean - old_mean
 ```
-
+* Permutation: I sampled the number of deaths by burns and then calculated the difference in the means of the two groups, one being 27 values long because there are 27 years in the dataset. My null hypothesis was that the two groups do not have the same mean and my test statistic was the difference in sample means.
+```{r}
+values <- perm_mean(1000, data$burns, 27)
+mean_data <- data_frame(values)
+ggplot(data = mean_data) +
+  geom_histogram(mapping = aes(x = values), binwidth = .02) +
+  geom_vline(xintercept = -1.79)
+```
+* Percentile: 
 
 
 
