@@ -1,10 +1,14 @@
 # Lab-13-StatsSloths-
 
-# How are most people dying from accidents and incidents?
+## Overall Question: How are most people dying from accidents and incidents?
+
+### Dataset Descriptions:
+* Burn deaths dataset: This dataset gives the number of deaths caused by burns per every 100,000 people by year per country from 1990 to 2016.
 
 Katie -> Poisoning
 Zandy -> Falls
 Kevin -> Burns
+
 
 Perm_mean function from last week (corrected):
 ```{r}
