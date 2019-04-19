@@ -119,7 +119,7 @@ differenceOceania <- newMeanOceania - oldMeanOceania
 ```
 * Permutation: I sampled the number of deaths by poisonings for each country. I then calculated the difference in the means for the year 2016 and the year 1990. My null hypothesis was that none of the country's two groups would have the same mean and my test statistic was the difference in sample means. 
 ```{r}
-data <- africa %>%
+dataAfrica <- africa %>%
   gather(1:27, key = "year", value = "poisons")%>%
   filter(!is.na(poisons))
 values <- perm_mean(1000, data$poisons, 27)
@@ -128,6 +128,46 @@ ggplot(data = mean_data) +
   geom_histogram(mapping = aes(x = values), binwidth = .02) +
   geom_vline(xintercept = -1.403725, color = "green") +
   ggtitle("Distribution of Mean Differences for Posion Deaths (AFRICA)")
+  
+dataAsia <- asia %>%
+  gather(1:27, key = "year", value = "poisons")%>%
+  filter(!is.na(poisons))
+values <- perm_mean(1000, data$poisons, 27)
+mean_data <- data_frame(values)
+ggplot(data = mean_data) +
+  geom_histogram(mapping = aes(x = values), binwidth = .02) +
+  geom_vline(xintercept = -1.245185, color = "green") +
+  ggtitle("Distribution of Mean Differences for Posion Deaths (ASIA)")
+  
+dataEurope <- europe %>%
+  gather(1:27, key = "year", value = "poisons")%>%
+  filter(!is.na(poisons))
+values <- perm_mean(1000, data$poisons, 27)
+mean_data <- data_frame(values)
+ggplot(data = mean_data) +
+  geom_histogram(mapping = aes(x = values), binwidth = .02) +
+  geom_vline(xintercept = -0.8063333, color = "green") +
+  ggtitle("Distribution of Mean Differences for Posion Deaths (EUROPE)")
+ 
+dataAmericas <- americas %>%
+  gather(1:27, key = "year", value = "poisons")%>%
+  filter(!is.na(poisons))
+values <- perm_mean(1000, data$poisons, 27)
+mean_data <- data_frame(values)
+ggplot(data = mean_data) +
+  geom_histogram(mapping = aes(x = values), binwidth = .02) +
+  geom_vline(xintercept = -0.91375 , color = "green") +
+  ggtitle("Distribution of Mean Differences for Posion Deaths (AMERICAS)")
+  
+dataOceania <- oceania %>%
+  gather(1:27, key = "year", value = "poisons")%>%
+  filter(!is.na(poisons))
+values <- perm_mean(1000, data$poisons, 27)
+mean_data <- data_frame(values)
+ggplot(data = mean_data) +
+  geom_histogram(mapping = aes(x = values), binwidth = .02) +
+  geom_vline(xintercept = -0.165 , color = "green") +
+  ggtitle("Distribution of Mean Differences for Posion Deaths (OCEANIA)")
 ```
 Percentile: 
 Conclusion: The number of deaths caused by posion is decreasing on every continent in the world because the real mean difference is different to the sampled mean difference which means the the labels do matter in this case.
