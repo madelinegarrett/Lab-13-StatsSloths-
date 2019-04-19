@@ -115,6 +115,7 @@ newMeanOceania <- OceaniaMeans[27]
 oldMeanOceania <- OceaniaMeans[1]
 differenceOceania <- newMeanOceania - oldMeanOceania
 ```
+* Permutation: I sampled the number of deaths by poisonings for each country. I then calculated the difference in the means for the year 2016 and the year 1990. My null hypothesis was that none of the country's two groups would have the same mean and my test statistic was the difference in sample means. 
 
 ### Kevin's Section:
 * Question: Are burn deaths increasing or decreasing across the world?
