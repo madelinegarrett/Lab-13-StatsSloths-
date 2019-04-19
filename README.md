@@ -60,11 +60,66 @@ perm_mean <- function(perms = 1000, values, n1)
 ### Katie's Section:
 * Question: Are deaths caused by poisonings increasing or decreasing on each continent?
 * This questions helps to answer our main question because if poisonings are increasing anywhere, we will know that more people are dying from poisonings in that area.
+* Map Code:
+```{r}
+#merge data sets togther to get continents
+poison <- read.csv("poisonings_deaths_per_100000_people.csv")
+gap <- gapminder
+poison <- merge(poison, gap, by = "country")%>%
+  select(2:29)
+```
+```{r}
+asia <- filter(poison, continent == "Asia")%>%
+  select(-28)
+europe <- filter(poison, continent == "Europe")%>%
+  select(-28)
+americas <- filter(poison, continent == "Americas")%>%
+  select(-28)
+africa <- filter(poison, continent == "Africa")%>%
+  select(-28)
+oceania <- filter(poison, continent == "Oceania")%>%
+  select(-28)
+```
+* Asia: -1.245185 
+```{r}
+AsiaMeans <- map_dbl(asia, mean)
+newMeanAsia <- AsiaMeans[27]
+oldMeanAsia <- AsiaMeans[1]
+differenceAsia <- newMeanAsia - oldMeanAsia
+```
+* Europe: -0.8063333 
+```{r}
+EuropeMeans <- map_dbl(europe, mean)
+newMeanEurope <- EuropeMeans[27]
+oldMeanEurope <- EuropeMeans[1]
+differenceEurope <- newMeanEurope - oldMeanEurope
+```
+* Americas: -0.91375 
+```{r}
+AmericasMeans <- map_dbl(americas, mean)
+newMeanAmericas <- AmericasMeans[27]
+oldMeanAmericas <- AmericasMeans[1]
+differenceAmericas <- newMeanAmericas - oldMeanAmericas
+```
+* Africa: -1.403725 
+```{r}
+AfricaMeans <- map_dbl(africa, mean)
+newMeanAfrica <- AfricaMeans[27]
+oldMeanAfrica <- AfricaMeans[1]
+differenceAfrica <- newMeanAfrica - oldMeanAfrica
+```
+* Oceania: -0.165
+```{r}
+OceaniaMeans <- map_dbl(oceania, mean)
+newMeanOceania <- OceaniaMeans[27]
+oldMeanOceania <- OceaniaMeans[1]
+differenceOceania <- newMeanOceania - oldMeanOceania
+```
 
 ### Kevin's Section:
 * Question: Are burn deaths increasing or decreasing across the world?
 * This question helps answer our main question because if deaths caused by burns are increasing, we will know that more people are dying from burns over time.
-* Map code:
+* Map Code:
 ```{r}
 burns_df <- read_csv("burns_deaths_per_100000_people.csv") %>%
   select(-1) %>%
