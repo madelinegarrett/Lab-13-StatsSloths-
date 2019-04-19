@@ -54,7 +54,7 @@ perm_mean <- function(perms = 1000, values, n1)
 ## Individual
 
 ### Kevin's Section:
-* Question: Are burn deaths increasing or decreasing across the world or only in specific countries?
+* Question: Are burn deaths increasing or decreasing across the world?
 * This question helps answer our main question because if deaths caused by burns are increasing, we will know that more people are dying from burns over time.
 * Map code:
 ```{r}
