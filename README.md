@@ -4,10 +4,11 @@
 
 ### Dataset Descriptions:
 * Burn deaths dataset: This dataset gives the number of deaths caused by burns per every 100,000 people by year per country from 1990 to 2016.
+* Fall deaths dataset: This dataset gives the number of deaths due to falls per every 100K people by year and by country from 1990 to 2016.
 
-Katie -> Poisoning
-Zandy -> Falls
-Kevin -> Burns
+* Katie -> Poisoning
+* Zandy -> Falls
+* Kevin -> Burns
 
 
 Perm_mean function from last week (corrected):
@@ -147,4 +148,7 @@ ggplot(data = mean_data) +
 * Question Answer: The actual difference in the average number of deaths per year from 1990 to 2016 is -1.79. This result and that of my permutation test lead to the conclusion that the number of deaths caused by burns per 100000 people is decreasing around the world.
 
 
-
+### Zandy's Section:
+* Question: Are deaths related to falls increasing over time and do they differ by country.
+* This question helps us to answer our main question by seeing if more or less people die due to falls over the years and if a certain country might have a higher mortality rate than other countries.
+* Map Code:
