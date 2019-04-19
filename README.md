@@ -72,6 +72,9 @@ original_diff <- current_mean - old_mean
 ```
 * Permutation: I sampled the number of deaths by burns and then calculated the difference in the means of the two groups, one being 27 values long because there are 27 years in the dataset. My null hypothesis was that the two groups do not have the same mean and my test statistic was the difference in sample means.
 ```{r}
+data <- read_csv("burns_deaths_per_100000_people.csv") %>%
+  gather(2:28, key = "year", value = "burns") %>%
+  filter(!is.na(burns))
 values <- perm_mean(1000, data$burns, 27)
 mean_data <- data_frame(values)
 ggplot(data = mean_data) +
