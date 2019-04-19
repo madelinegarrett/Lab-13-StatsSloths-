@@ -57,6 +57,10 @@ perm_mean <- function(perms = 1000, values, n1)
 
 ## Individual
 
+### Katie's Section:
+* Question: Are deaths caused by poisonings increasing or decreasing on each continent?
+* This questions helps to answer our main question because if poisonings are increasing anywhere, we will know that more people are dying from poisonings in that area.
+
 ### Kevin's Section:
 * Question: Are burn deaths increasing or decreasing across the world?
 * This question helps answer our main question because if deaths caused by burns are increasing, we will know that more people are dying from burns over time.
