@@ -79,7 +79,8 @@ values <- perm_mean(1000, data$burns, 27)
 mean_data <- data_frame(values)
 ggplot(data = mean_data) +
   geom_histogram(mapping = aes(x = values), binwidth = .02) +
-  geom_vline(xintercept = -1.79)
+  geom_vline(xintercept = -1.79, color = "blue") +
+  ggtitle("Distribution of Mean Differences for Burn Deaths")
 ```
 * Percentile: Real mean difference is in the Oth percentile
 * Conclusion: The number of deaths caused by burns is decreasing in the world because the real mean difference is so rare to the sampled mean differences, indicating the year labels do matter.
