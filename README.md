@@ -29,8 +29,8 @@ perm_mean <- function(perms = 1000, values, n1)
     # Randomly separate vector "values" into disjoint 
     # groups of size "n1" and "length(values) - n1" respectively
     name <- sample(values)
-    group_one <- name[1, n1]
-    group_two <- name[n1, length(values)]
+    group_one <- name[1:n1]
+    group_two <- name[n1:length(values)]
     
     # Step 3:
     # Compute the sample means for the two groups from
