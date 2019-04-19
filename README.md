@@ -232,3 +232,59 @@ ggplot(data = mean_data) +
 * Percentile: Real mean difference is in the lower 20th  percentile
 * Conclusion: The number of deaths caused by burns is staying about the same or only slightly decreasing in the world because the real mean difference is in the lower percentiles compared to the sampled mean differences, indicating the year labels do only slightly matter if not at all.
 * Question Answer: The actual difference in the average number of deaths per year from 1990 to 2016 is -1.56. This result and that of my permutation test lead to the conclusion that the number of deaths caused by falls per 100000 people is decreasing overall around the world.
+
+### Madeline's Section:
+* Question: Have posions increased from 1990 to 2016?
+* This question helps answer our main question because if deaths caused by posions are increasing, we will know that more people are dying from poisons over time. We can direct our efforts to trying to stop this from happening. 
+* Map Code:
+    This code tells us the original means and original differences from posionings in 1990 to posionings     in 2016
+```{r}
+p_df <- read_csv("poisonings_deaths_per_100000_people.csv") %>%
+  select(-1) %>%
+  na.omit()
+original_means <- map_dbl(burns_df, mean)
+current_mean <- original_means[27] #27 represents 2017
+old_mean <- original_means[1] #1 represents 1990
+original_diff <- current_mean - old_mean
+
+means <- map_dbl(p_df, mean)
+means2016 <- means[27] 
+means1990 <- means[1]
+diff <- means1990 - means2016
+means1990
+means2016
+diff
+```
+
+```{r}
+data <- read_csv("poisonings_deaths_per_100000_people.csv") %>%
+  gather(2:28, key = "year", value = "burns") %>%
+  filter(!is.na(burns))
+values <- perm_mean(1000, data$burns, 27)
+mean_data <- data_frame(values)
+ggplot(data = mean_data) +
+  geom_histogram(mapping = aes(x = values), binwidth = .02, fill = "lightblue") +
+  geom_vline(xintercept = 1.06, color = "blue") +
+  ggtitle("Distribution of Mean Differences for Poison Deaths")
+```
+
+
+
+```{r, include = FALSE}
+p <- poisons %>%
+  gather(2:28, key = "year", value = "burns")
+  group_by(year) %>%
+  mutate(total=sum()) 
+
+p <- ggplot(data = p, na.rm = FALSE) +
+  geom_bar(mapping = aes(x = as.factor(year), y = burns, color = as.factor(year)), stat = "identity")+
+  ggtitle("Number of Posion Victims From 1990 to 2016")+ 
+           xlab("1990 <----------------------------------------------------TIME------------------------------------------------> 2016") + 
+           ylab("Number of Poisons")
+```
+
+```{r}
+p + theme(axis.line=element_blank(),axis.text.x=element_blank(), legend.position="none")
+```
+
+Conclusion: The data that we were looking at was fairly rare with it lying fairly far from the main normal distribution of poison deaths. 
