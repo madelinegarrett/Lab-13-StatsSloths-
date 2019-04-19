@@ -174,3 +174,7 @@ ggplot(data = mean_data) +
   geom_vline(xintercept = -1.56, color = "red") +
   ggtitle("Distribution of Mean Differences for Fall Deaths")
 ```
+
+* Percentile: Real mean difference is in the lower 20th  percentile
+* Conclusion: The number of deaths caused by burns is staying about the same or only slightly decreasing in the world because the real mean difference is in the lower percentiles compared to the sampled mean differences, indicating the year labels do only slightly matter if not at all.
+* Question Answer: The actual difference in the average number of deaths per year from 1990 to 2016 is -1.56. This result and that of my permutation test lead to the conclusion that the number of deaths caused by falls per 100000 people is decreasing overall around the world.
