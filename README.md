@@ -169,7 +169,7 @@ ggplot(data = mean_data) +
   geom_vline(xintercept = -0.165 , color = "green") +
   ggtitle("Distribution of Mean Differences for Posion Deaths (OCEANIA)")
 ```
-Percentile: 
+Percentile: Africa, Asia, Europe and Americas all have a real mean difference in the 10th percentile. Oceania's real mean difference is in the 40th percentile.
 Conclusion: The number of deaths caused by posion is decreasing on every continent in the world because the real mean difference is different to the sampled mean difference which means the the labels do matter in this case.
 Answer to Question: Each of these continents has had a decrease in the amount of deaths by poison per 100,000 people. From this we know that around the world the number of poison deaths as a whole has decreased since 1990. 
 
