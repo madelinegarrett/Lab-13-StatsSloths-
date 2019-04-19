@@ -152,3 +152,24 @@ ggplot(data = mean_data) +
 * Question: Are deaths related to falls increasing over time and do they differ by country.
 * This question helps us to answer our main question by seeing if more or less people die due to falls over the years and if a certain country might have a higher mortality rate than other countries.
 * Map Code:
+```{r}
+falls_df <- read_csv("falls_deaths_per_100000_people.csv") %>%
+  select(-1) %>%
+  na.omit()
+original_means <- map_dbl(falls_df, mean)
+current_mean <- original_means[27] #27 represents 2016
+old_mean <- original_means[1] #1 represents 1990
+original_diff <- current_mean - old_mean
+```
+* Permutation: I sampled the number of deaths due to falls and then calculated the difference in the means of the two groups, one being 27 values long because there are 27 years in the dataset. My null hypothesis was that the two groups do not have the same mean and my test statistic was the difference in sample means.
+```{r}
+data <- read_csv("falls_deaths_per_100000_people.csv") %>%
+  gather(2:28, key = "year", value = "falls") %>%
+  filter(!is.na(falls))
+values <- perm_mean(1000, data$falls, 27)
+mean_data <- data_frame(values)
+ggplot(data = mean_data) +
+  geom_histogram(mapping = aes(x = values), binwidth = .02) +
+  geom_vline(xintercept = -1.56, color = "red") +
+  ggtitle("Distribution of Mean Differences for Fall Deaths")
+```
