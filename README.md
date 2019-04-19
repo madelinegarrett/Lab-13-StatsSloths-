@@ -28,9 +28,11 @@ perm_mean <- function(perms = 1000, values, n1)
     # Shuffle them using smample
     # Randomly separate vector "values" into disjoint 
     # groups of size "n1" and "length(values) - n1" respectively
-    name <- sample(values)
-    group_one <- name[1:n1]
-    group_two <- name[n1:length(values)]
+    # group_one <- sample(values, n1)
+    # group_two <- sample(values, length(values)-n1)
+    sampled <- sample(values)
+    group_one <- sampled[1:n1]
+    group_two <- sampled[n1:length(values)]
     
     # Step 3:
     # Compute the sample means for the two groups from
@@ -43,7 +45,6 @@ perm_mean <- function(perms = 1000, values, n1)
     diff <- g1mean - g2mean
     means[i] <- diff
   }
-  
   # Step 5:
   # Return new updated vector, created in step 1
   means
