@@ -74,7 +74,9 @@ ggplot(data = mean_data) +
   geom_histogram(mapping = aes(x = values), binwidth = .02) +
   geom_vline(xintercept = -1.79)
 ```
-* Percentile: 
+* Percentile: Real mean difference is in the Oth percentile
+* Conclusion: The number of deaths caused by burns is decreasing in the world because the real mean difference is so rare to the sampled mean differences, indicating the year labels do matter.
+* Question Answer: The actual difference in the average number of deaths per year from 1990 to 2016 is -1.79. This result and that of my permutation test lead to the conclusion that the number of deaths caused by burns per 100000 people is decreasing around the world.
 
 
 
