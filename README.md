@@ -150,8 +150,8 @@ ggplot(data = mean_data) +
 
 
 ### Zandy's Section:
-* Question: Are deaths related to falls increasing over time and do they differ by country.
-* This question helps us to answer our main question by seeing if more or less people die due to falls over the years and if a certain country might have a higher mortality rate than other countries.
+* Question: Are deaths related to falls increasing over time?
+* This question helps us to answer our main question by seeing if more or less people die due to falls over the years. 
 * Map Code:
 ```{r}
 falls_df <- read_csv("falls_deaths_per_100000_people.csv") %>%
